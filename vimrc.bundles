@@ -1,0 +1,36 @@
+Bundle 'gmarik/vundle'
+
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/nerdtree.git'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'plasticboy/vim-markdown'
+
+Bundle 'taglist.vim'
+Bundle 'L9'
+Bundle 'ctrlp.vim'
+Bundle 'Command-T'
+Bundle 'vim-coffee-script'
+
+Bundle 'tomasr/molokai'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'majutsushi/tagbar'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdcommenter'
+
+Bundle 'hdima/python-syntax'
+Bundle 'klen/python-mode'
+
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+Bundle 'godlygeek/tabular'
+
+Bundle 'Yggdroot/indentLine'
+Bundle 'kevinw/pyflakes'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'Raimondi/delimitMate'
+Bundle 'vim-multiple-cursors'
+
+Bundle 'terryma/vim-expand-region'
