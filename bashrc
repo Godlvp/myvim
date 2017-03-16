@@ -131,6 +131,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+export TERM="linux"
+
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[0;31;40m\]\u\[\033[33;00m\]@\h:\[\033[37;40m\]\W\[\033[32;40m\]\$ \[\033[34;40m\]'
 
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[31;40m\]\u\[\033[35;40m\]@\[\033[36;40m\]\h\[\033[35;40m\]:\[\033[37;40m\]\w \[\033[32;40m\]\$ \[\033[34;40m\]'

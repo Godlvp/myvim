@@ -11,8 +11,9 @@ set shiftwidth=4
 "set listchars=tab:▸\ ,eol:¬
 set autoindent
 set cindent
-set smartindent      "for C/C++
-"set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s)}   "for C/C++
+set smartindent      
+"for C/C++
+"set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s)}   
 set number
 set showmatch
 set mouse=a
@@ -59,18 +60,34 @@ let g:UltiSnipsListSnippets = '<C-Tab>'
 let g:UltiSnipsJumpForwardTrigger = '<Tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 
-"powerline
-set guifont=PowerlineSymbols\ for\ Powerline
-set nocompatible
+"airline
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
+if exists('$TMUX')
+	set term=screen
+endif
+set t_Co=256
 set laststatus=2
-let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+" separator
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+" tabline show number of buffers
+let g:airline#extensions#tabline#buffer_nr_show = 1
+" change buffer
+nnoremap [b :bp<CR>
+nnoremap ]b :bn<CR>
 
 "taglist
-"let Tlist_Ctags_Cmd = '/usr/bin/ctags'   "location of ctags
-let Tlist_Show_One_File = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Use_Right_Window = 1
-let Tlist_GainFocus_On_ToggleOpen = 1
+"location of ctags
+"let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+"let Tlist_Show_One_File = 1
+"let Tlist_Exit_OnlyWindow = 1
+"let Tlist_Use_Right_Window = 1
+"let Tlist_GainFocus_On_ToggleOpen = 1
 
 "markdown-mode
 let g:vim_markdown_folding_disabled=1
@@ -82,18 +99,19 @@ let g:netrw_home='~/bak'
 "close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | end
 
-"ctags
-set tags=tags;
-set autochdir
-"set tags+=~/code/python/tags
-set tags+=~/.vim/tags/systags
-set tags+=~/.vim/tags/python.tags
-
-
 "tagbar
-"let g:tagbar_ctags_bin='/usr/bin/ctags'  "location of ctags
+"let g:tagbar_ctags_bin='/usr/bin/ctags'
 let g:tagbar_width=30
 let g:tagbar_autofocus = 1
+
+"ctags
+set tags=tags;
+"set tags+=~/code/python/tags
+"set tags+=~/.vim/tags/systags
+set tags+=~/.vim/tags/python.tags
+set autochdir
+" update current folder tags by tg 
+"nmap tg :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q *<CR>:set tags+=./tags<CR>
 
 "python syntax highlight
 let python_highlight_all = 1
@@ -104,7 +122,8 @@ let g:syntastic_warning_symbol = '?'
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 0
 "let g:syntastic_python_checker='flake8,pyflakes,pep8,pylint'
-let g:syntastic_python_checkers=['pyflakes']
+"let g:syntastic_python_checkers=['pyflakes']
+let g:syntastic_python_checkers=['flake8']
 "highlight SyntasticErrorSign guifg=white guibg=black
 
 let g:syntastic_cpp_include_dirs = ['/usr/include/']
@@ -154,10 +173,11 @@ au Syntax * RainbowParenthesesLoadBraces
 
 "pymode 
 let g:pymode_rope = 0 
+let g:pymode = 1
 "keymap
 let mapleader = ','
 nnoremap <leader>d :NERDTreeToggle<CR>
-nnoremap <leader>[ :TlistToggle<CR>
+"nnoremap <leader>[ :TlistToggle<CR>
 nnoremap <leader>t :CtrlP<CR>
 nnoremap <leader>] :TagbarToggle<CR>
 nnoremap <leader>us :UltiSnipsEdit<CR>

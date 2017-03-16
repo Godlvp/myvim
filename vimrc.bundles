@@ -1,11 +1,11 @@
 Bundle 'gmarik/vundle'
 
-Bundle 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'plasticboy/vim-markdown'
 
-Bundle 'taglist.vim'
+Bundle 'vim-scripts/winmanager'
 Bundle 'L9'
 Bundle 'ctrlp.vim'
 Bundle 'Command-T'
